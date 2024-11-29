@@ -1,0 +1,33 @@
+<div class="calc-content">
+  <div class="calc-title">Beer Calculator</div>
+  <div class="human-block">
+    <app-human></app-human>
+  </div>
+
+  <div class="info-box" (click)="toggleTip()">
+    <img src="assets/img/info.png" class="info-icon" alt="info" />
+    {{ showTip ? "Hide Tip" : "Show Tip" }}
+
+    <div *ngIf="showTip" [@fadeInOut] class="tip-box">
+      Here you may calculate the appropriate portion of beer for you to achieve
+      the best drunk effect.
+    </div>
+  </div>
+
+  <div class="options-choose">
+    <a href="quickcalc">
+      <div class="calc-button">
+        <button (click)="selectOption('quick')" class="calc-button-back">
+          quick calculation
+        </button>
+      </div>
+    </a>
+    <a href="quickcalc">
+      <div class="calc-button">
+        <button (click)="selectOption('deep')" class="calc-button-back">
+          deep calculation
+        </button>
+      </div>
+    </a>
+  </div>
+</div>

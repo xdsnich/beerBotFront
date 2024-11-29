@@ -1,0 +1,105 @@
+.calc-content {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 60px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.calc-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+app-human {
+  width: 100%;
+  height: 100px;
+}
+
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.info-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+}
+
+.info-icon:hover {
+  transform: scale(1.1);
+}
+
+.show-tip-btn {
+  padding: 10px 20px;
+  background-color: #8473ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-tip-btn:hover {
+  background-color: #565656;
+  display: flex;
+  align-items: center;
+}
+
+.tip-box {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+  max-width: 300px;
+  text-align: center;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+.options-choose {
+  display: flex;
+  justify-content: space-around;
+}
+
+.calc-button {
+  font-size: 10px;
+  width: 100px;
+  height: 50px;
+  background-color: #8473ff;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.calc-button-back {
+  position: relative;
+  left: -2px;
+  top: -6px;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  font-family: "JetBrains Mono", sans-serif;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  font-size: 10px;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

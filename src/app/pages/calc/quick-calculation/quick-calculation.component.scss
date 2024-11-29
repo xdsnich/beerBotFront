@@ -1,0 +1,161 @@
+.calc-content {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 60px;
+  min-height: 100vh;
+  overflow: hidden;
+  flex: 1;
+}
+
+.calc-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.calc-subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.model-circle {
+  width: 150px;
+  height: 60px;
+  background-color: 515151;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0px 10px 15px #313030;
+  border: 1px solid #2e8cc8;
+  margin-bottom: 40px;
+}
+
+.calc-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 238px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #181818;
+  margin: 20px;
+}
+
+.block-border {
+  background-color: #1e1e1e;
+  width: 238px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  left: -6px;
+  top: -6px;
+}
+.block-border div {
+  display: flex;
+  align-items: center;
+}
+.block-border div img {
+  padding-left: 12px;
+  padding-right: 4px;
+}
+.calc-button1 {
+  padding-left: 60px;
+  background-color: #565656;
+}
+.back-option {
+  background-color: #8473ff;
+}
+.dropdown {
+  margin-left: 60px;
+  background-color: #8473ff;
+  border-radius: 5px;
+  height: 22px;
+}
+.font9 {
+  font-size: 9px;
+}
+.img-size20 {
+  width: 34px;
+  height: 20px;
+}
+.dropdown-btn {
+  position: relative;
+  top: -2px;
+  left: 0;
+  background-color: #444;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 9px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s;
+  width: 64px;
+  height: 20px;
+}
+
+.dropdown-btn:hover {
+  background-color: #555;
+}
+
+.dropdown-btn .open {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: relative;
+  top: 13px;
+  left: 208px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  background-color: #333;
+  width: 40px;
+  height: 140px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #ffffff;
+  font-size: 9px;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s;
+  font-family: "JetBrains Mono", sans-serif;
+}
+
+.dropdown-content a:hover {
+  color: #fff;
+}
+
+.calc-button {
+  font-size: 10px;
+  width: 100px;
+  height: 50px;
+  background-color: #8473ff;
+  border-radius: 10px;
+  margin-right: 10px;
+}
+
+.calc-button-back {
+  position: relative;
+  left: -2px;
+  top: -6px;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  font-family: "JetBrains Mono", sans-serif;
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  font-size: 10px;
+}

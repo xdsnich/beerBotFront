@@ -1,0 +1,35 @@
+:root {
+  --bg-color: #181818;
+  --primary-color: #2e8cc8;
+  --secondary-color: #8473ff;
+  --text-color: #ffffff;
+  --circle-color: #515151;
+  --shadow-color: #313030;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-weight: 500;
+}
+
+body {
+  font-family: "JetBrains Mono", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-root {
+  flex: 1;
+}
+
+.scroll-container {
+  max-height: 800px;
+  overflow-y: auto;
+}

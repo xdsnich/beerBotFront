@@ -1,0 +1,343 @@
+.profile-container {
+  background-color: black;
+  color: white;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "JetBrains Mono", sans-serif;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 0.5s forwards;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #3a3a3a;
+  margin-bottom: 8px;
+}
+
+.user-name {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.beer-count {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.beer-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  width: 100%;
+  position: relative;
+}
+
+.tab {
+  flex: 1;
+  text-align: center;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  background-color: #181818;
+  color: white;
+  font-size: 20px;
+  position: relative;
+  font-weight: 700;
+  transition: background-color 0.3s, color 0.3s;
+}
+.tab::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 6px;
+  background-color: #626262;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+
+.tab.active {
+  font-weight: bold;
+  background-color: #181818;
+}
+.tab.active::after {
+  width: 50%;
+}
+.tab.active::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 6px;
+  background-color: #626262;
+  border-radius: 5px;
+  transition: width 0.3s ease-in-out;
+}
+.tab:hover::after {
+  width: 50%;
+}
+.tab.active:hover::after {
+  width: 50%;
+}
+.tab-content {
+  width: 90%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.tab-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+.calendar-container {
+  width: 100%;
+  text-align: center;
+}
+.tab-panel {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+.button-generals {
+  width: 258px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.achievements-block {
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Два элемента в ряд */
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 1;
+  transform: translateY(0);
+}
+.achievements-block.ng-hide {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.achievements-item {
+  width: 126px;
+  height: 118px;
+  background-color: #181818;
+  border-radius: 20px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.nav-button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.month-year {
+  font-size: 18px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-day {
+  background-color: #181818;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.calendar-day:hover {
+  background-color: #282828;
+  transform: scale(1.05);
+}
+
+.day-number {
+  font-size: 16px;
+}
+
+.drink-amount {
+  font-size: 12px;
+  color: #63b9f0;
+}
+
+.input-container {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.beer-input {
+  margin: 8px 0;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #282828;
+  color: white;
+  width: 120px;
+}
+
+.add-entry {
+  background-color: #63b9f0;
+  color: black;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-entry:hover {
+  background-color: #4695c4;
+  transform: scale(1.1);
+}
+.top-users {
+  margin-top: 20px;
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.padding-left {
+  padding-left: 4px;
+  font-weight: 300;
+  font-size: 16px;
+}
+.flex-start {
+  display: flex;
+  width: 258px;
+}
+
+.close-button {
+  background-color: transparent;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 258px;
+}
+.me {
+  margin-bottom: 10px;
+}
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 258px;
+  height: 58px;
+  margin: 10px 0;
+  background-color: black;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ffffff;
+}
+
+.avatar-users {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  background-color: #3a3a3a;
+  margin-right: 10px;
+}
+.column-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+}
+.user-name {
+  font-size: 16px;
+}
+
+.user-score {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999999;
+}
+.user-place {
+  font-size: 12px;
+  font-weight: 400;
+  color: #999999;
+}
+.button-generals {
+  width: 258px;
+  height: 50px;
+  border: 1px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-generals:hover {
+  background-color: #444444;
+}

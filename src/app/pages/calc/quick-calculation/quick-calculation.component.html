@@ -1,0 +1,52 @@
+<div class="calc-content">
+  <div class="calc-title">Beer calculator</div>
+  <div class="calc-subtitle">Experience best drunk effect<br /></div>
+  <div class="human-block">
+    <app-human></app-human>
+  </div>
+  <!-- <div class="model-circle"></div> -->
+
+  <div class="calc-block">
+    <div class="block-border">
+      <div>
+        <img src="../assets/img/human.png" class="img-size20" alt="" /><span
+          class="font9"
+        >
+          age
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="calc-block">
+    <div class="block-border">
+      <div>
+        <img src="../assets/img/weight.png" class="img-size20" alt="" />
+        <div class="font9">weight</div>
+      </div>
+    </div>
+  </div>
+  <div class="calc-block">
+    <div class="block-border">
+      <div>
+        <img src="../assets/img/calendar.png" alt="" />
+        <div class="font9">last drinking</div>
+        <div class="dropdown">
+          <button class="dropdown-btn" (click)="toggleDropdown()">
+            option
+            <span [class.open]="isOpen">&#9662;</span>
+          </button>
+          <div class="dropdown-content" *ngIf="isOpen">
+            <a href="#" (click)="selectOption('1 day')">1 day</a>
+            <a href="#" (click)="selectOption('3 days')">3 days</a>
+            <a href="#" (click)="selectOption('7 days')">7 days</a>
+            <a href="#" (click)="selectOption('1 month')">1 month</a>
+            <a href="#" (click)="selectOption('more')">more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="calc-button">
+    <button class="calc-button-back">calculate</button>
+  </div>
+</div>

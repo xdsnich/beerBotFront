@@ -1,0 +1,134 @@
+<div class="profile-container">
+  <div class="profile-header">
+    <div class="avatar"></div>
+    <p class="user-name">avatar</p>
+    <p class="beer-count">
+      <img
+        src="../assets/icons/beer-icon.svg"
+        alt="Beer Icon"
+        class="beer-icon"
+      />
+      {{ beerCount | number }}
+    </p>
+  </div>
+
+  <div class="tabs">
+    <button
+      *ngFor="let tab of tabs"
+      [class.active]="activeTab === tab"
+      (click)="switchTab(tab)"
+      class="tab"
+    >
+      {{ tab }}
+    </button>
+  </div>
+
+  <div class="tab-content" [class.active]="activeTab === 'generals'">
+    <ng-container *ngIf="activeTab === 'generals'">
+      <div class="tab-panel achievements">
+        <div
+          class="button-generals"
+          (click)="toggleAchievements()"
+          *ngIf="showButtons"
+        >
+          achievements
+        </div>
+
+        <div class="achievements-block" *ngIf="showAchievements">
+          <div
+            class="achievements-item"
+            *ngFor="let achievement of achievements"
+          >
+            {{ achievement }}
+          </div>
+        </div>
+
+        <div
+          class="button-generals"
+          (click)="toggleLeaderboard()"
+          *ngIf="showButtons"
+        >
+          leaderboard
+        </div>
+
+        <div
+          class="button-generals"
+          (click)="toggleDrinkResults()"
+          *ngIf="showButtons"
+        >
+          drink results
+        </div>
+
+        <div class="top-users" *ngIf="showLeaderboard">
+          <div class="close-button" (click)="closeLeaderboard()">←</div>
+          <div class="flex-start">
+            <span>me</span>
+          </div>
+          <div class="me">
+            <div class="leaderboard-item">
+              <div class="avatar-users"></div>
+              <div class="column-block">
+                <div class="user-name">xdxdAdmin</div>
+                <div class="user-score">36,647</div>
+              </div>
+              <div class="user-place">18,249</div>
+            </div>
+          </div>
+          <div class="flex-start">
+            <span>Top 100 users</span>
+          </div>
+          <div class="leaderboard">
+            <div class="leaderboard-item" *ngFor="let user of leaderboard">
+              <div class="avatar-users"></div>
+              <div class="column-block">
+                <div class="user-name">{{ user.name }}</div>
+                <div class="user-score">{{ user.score }}</div>
+              </div>
+              <div class="user-place">{{ user.place }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div class="tab-content" [class.active]="activeTab === 'calendar'">
+    <ng-container *ngIf="activeTab === 'calendar'">
+      <div class="tab-panel calendar">
+        <p>Select a date and add your drinks!</p>
+        <div class="calendar-container">
+          <div class="calendar-header">
+            <button class="nav-button" (click)="navigateMonth(-1)">&lt;</button>
+            <span class="month-year">{{ currentMonthYear }}</span>
+            <button class="nav-button" (click)="navigateMonth(1)">&gt;</button>
+          </div>
+
+          <div class="calendar-grid">
+            <div
+              class="calendar-day"
+              *ngFor="let day of daysInMonth"
+              (click)="selectDate(day)"
+            >
+              <span class="day-number">{{ day.date.getDate() }}</span>
+              <span *ngIf="day.liters" class="drink-amount"
+                >{{ day.liters }} L</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="input-container">
+          <input
+            type="number"
+            [(ngModel)]="litersDrunk"
+            placeholder="Liters drunk"
+            class="beer-input"
+          />
+          <button class="add-entry" (click)="addCalendarEntry()">
+            Add Entry
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

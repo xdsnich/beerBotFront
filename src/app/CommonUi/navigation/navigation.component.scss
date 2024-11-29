@@ -1,0 +1,31 @@
+.navigation {
+  width: 100%;
+  height: 15%;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 0px 26px;
+  z-index: 100;
+}
+.nav-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  opacity: 65%;
+  font-size: 14px;
+  font-weight: 700;
+}
+.nav-block:hover {
+  opacity: 100%;
+}
+.nav-block img {
+  width: 20px;
+  height: 20px;
+}

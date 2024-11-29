@@ -1,0 +1,155 @@
+<div class="earn-main-content">
+  <!-- Аватар -->
+  <div class="avatar">
+    <div class="avatar-block">
+      <img *ngIf="userData.photoUrl" [src]="userData.photoUrl" alt="Avatar" />
+    </div>
+  </div>
+
+  <!-- Заголовок -->
+  <div class="earn-title">
+    Hey, {{ userData.username || userData.firstName }}
+  </div>
+
+  <!-- Человеческий блок -->
+  <div class="human-block">
+    <app-human></app-human>
+  </div>
+
+  <div class="back-button">
+    <div class="button-farm">start farm</div>
+  </div>
+
+  <div class="block-info">
+    <span class="info-title"
+      ><img
+        src="../assets/img/info1.png"
+        alt="icons"
+        style="height: 20px; margin-right: 4px; opacity: 60%"
+      />info</span
+    >
+  </div>
+  <div class="border-info">
+    <div class="border-info-item">
+      <div class="info-item">balance</div>
+      <div class="info-item">357bp</div>
+    </div>
+    <div class="border-info-item">
+      <div class="info-item">energy</div>
+      <div class="progress-bar-container">
+        <div
+          class="progress-bar"
+          [ngStyle]="{
+            width: progress + '%',
+            'background-color': getProgressColor(progress)
+          }"
+        ></div>
+      </div>
+      <div class="info-item">800</div>
+    </div>
+  </div>
+
+  <!-- Информация: Статус майнинга -->
+  <div class="block-info">
+    <span class="info-title"
+      ><img
+        src="../assets/img/mining.png"
+        alt="icons"
+        style="height: 20px; margin-right: 4px"
+      />mining</span
+    >
+  </div>
+  <div class="border-info">
+    <div class="border-info-item">
+      <div class="info-item">status</div>
+      <div class="info-item">mining</div>
+    </div>
+    <div class="border-info-item">
+      <div class="info-item">est time</div>
+      <div class="info-item">01h 42m</div>
+    </div>
+  </div>
+
+  <!-- Табуляция -->
+  <div class="tabs">
+    <button
+      *ngFor="let tab of tabs"
+      [class.active]="activeTab === tab.key"
+      (click)="setActiveTab(tab.key)"
+    >
+      {{ tab.label }}
+    </button>
+  </div>
+
+  <div class="tab-content">
+    <ng-container *ngIf="activeTab === 'percs'">
+      <div class="block-info">
+        <span class="info-title"
+          ><img
+            src="../assets/img/cube.png"
+            alt="icons"
+            style="height: 20px; margin-right: 4px"
+          />percs</span
+        >
+      </div>
+      <div class="block-invite-back">
+        <div class="block-invite">
+          <div class="first-block-frens">
+            <div class="invite">
+              <img
+                style="margin-right: 4px"
+                src="../assets/img/frens.png"
+                alt="Invite"
+              />
+              invite friend
+            </div>
+            <div>
+              Score 5% from buddies + 1.5% <br />
+              from their referrals
+            </div>
+          </div>
+          <div class="second-block-frens">
+            <div class="block-border">
+              <div>invite</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="activeTab === 'missions'">
+      <div class="block-info">
+        <span class="info-title"
+          ><img
+            src="../assets/img/mission.png"
+            alt="icons"
+            style="height: 20px; margin-right: 4px; opacity: 60%"
+          />missions</span
+        >
+      </div>
+      <div class="block-invite-back1">
+        <div class="block-invite">
+          <div class="colomn-block">
+            <span class="font-size14">proof of activity</span>
+            <span class="padding-14px">+1,000 bp</span>
+            <div class="start-back">
+              <button class="start1">start</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngFor="let mission of missions" class="view-frens-back">
+        <div class="view-frens">
+          <img [src]="mission.image" alt="{{ mission.title }}" />
+          <div class="colomn-block font-size8 padding-left13">
+            <span class="width125px">{{ mission.title }}</span>
+            <span>{{ mission.reward }}</span>
+          </div>
+          <div class="margin-left42 start-back">
+            <button class="start">{{ mission.action }}</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
