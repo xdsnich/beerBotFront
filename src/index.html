@@ -11,9 +11,14 @@
       async
       defer
     ></script>
+    <script>
+      function onTelegramAuth(user) {
+        const event = new CustomEvent("telegramAuth", { detail: user });
+        window.dispatchEvent(event);
+      }
+    </script>
   </head>
   <body>
     <app-root></app-root>
-  
   </body>
 </html>
