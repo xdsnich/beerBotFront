@@ -25,6 +25,9 @@ export class AuthService {
   }
 
   getAuthorizationStatus(): boolean {
-    return localStorage.getItem('isAuthorized') === 'true';
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('isAuthorized') === 'true';
+    }
+    return false;
   }
 }
