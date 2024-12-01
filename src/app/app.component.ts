@@ -25,6 +25,8 @@ export class AppComponent {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.isAuthorized = this.authService.getAuthorizationStatus();
+    this.authService.isAuthorized$.subscribe((status) => {
+      this.isAuthorized = status;
+    });
   }
 }

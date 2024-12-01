@@ -29,6 +29,7 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
       '#telegram-widget-container'
     );
     container.appendChild(script);
+    (window as any).onTelegramAuth = (user: any) => this.onTelegramAuth(user);
   }
 
   onTelegramAuth(user: any) {
@@ -46,8 +47,6 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
       (response) => {
         console.log('Данные успешно отправлены на сервер:', response);
         this.authService.setAuthorizationStatus(true);
-
-        window.location.reload();
       },
       (error) => {
         console.error('Ошибка при отправке данных на сервер:', error);

@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private apiUrl = 'http://localhost:5173/api/TelegramAuth';
+
+  private isAuthorizedSubject = new BehaviorSubject<boolean>(
+    this.getAuthorizationStatus()
+  );
+  isAuthorized$ = this.isAuthorizedSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -16,6 +21,7 @@ export class AuthService {
 
   setAuthorizationStatus(status: boolean): void {
     localStorage.setItem('isAuthorized', status ? 'true' : 'false');
+    this.isAuthorizedSubject.next(status);
   }
 
   getAuthorizationStatus(): boolean {
