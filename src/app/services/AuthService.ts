@@ -1,4 +1,3 @@
-// auth.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,21 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private authorized = false;
+  private apiUrl = 'http://localhost:5173/api/TelegramAuth';
 
   constructor(private http: HttpClient) {}
 
-  setAuthorizationStatus(status: boolean) {
-    this.authorized = status;
-  }
-
-  getAuthorizationStatus() {
-    return this.authorized;
-  }
-
   sendUserDataToServer(user: any): Observable<any> {
-    const url = 'http://localhost:5173/api/TelegramLogin';
-    return this.http.post(url, user);
+    return this.http.post(`${this.apiUrl}/telegram-login`, user);
+  }
+
+  setAuthorizationStatus(status: boolean): void {
+    localStorage.setItem('isAuthorized', status ? 'true' : 'false');
+  }
+
+  getAuthorizationStatus(): boolean {
+    return localStorage.getItem('isAuthorized') === 'true';
   }
 }
-

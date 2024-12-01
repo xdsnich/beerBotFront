@@ -1,8 +1,8 @@
-<!-- <div *ngIf="isAuthorized; else unauthorizedTemplate" class="container"> -->
-<router-outlet></router-outlet>
-<app-navigation></app-navigation>
-<!-- </div> -->
+<div *ngIf="isAuthorized; else unauthorizedTemplate" class="container">
+  <router-outlet></router-outlet>
+  <app-navigation></app-navigation>
+</div>
 
-<!-- <ng-template #unauthorizedTemplate>
+<ng-template #unauthorizedTemplate>
   <app-telegram-authorization></app-telegram-authorization>
-</ng-template> -->
+</ng-template>

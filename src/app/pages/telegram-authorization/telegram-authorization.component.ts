@@ -32,9 +32,17 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
   }
 
   onTelegramAuth(user: any) {
-    console.log('Авторизован пользователь:', user);
+    const telegramData = {
+      id: user.id,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      username: user.username,
+      auth_date: user.auth_date,
+      hash: user.hash,
+      photo_url: user.photo_url,
+    };
 
-    this.authService.sendUserDataToServer(user).subscribe(
+    this.authService.sendUserDataToServer(telegramData).subscribe(
       (response) => {
         console.log('Данные успешно отправлены на сервер:', response);
         this.authService.setAuthorizationStatus(true);
