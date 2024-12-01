@@ -46,6 +46,8 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
       (response) => {
         console.log('Данные успешно отправлены на сервер:', response);
         this.authService.setAuthorizationStatus(true);
+
+        window.location.reload();
       },
       (error) => {
         console.error('Ошибка при отправке данных на сервер:', error);
