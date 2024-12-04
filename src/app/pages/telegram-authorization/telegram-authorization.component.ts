@@ -45,6 +45,8 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
     console.log('Данные для отправки на сервер:', telegramData)
     this.authService.sendUserDataToServer(telegramData).subscribe(
       (response) => {
+        const token = response.token;
+        this.storeToken(token);
         console.log('Данные успешно отправлены на сервер:', response);
         this.authService.setAuthorizationStatus(true);
       },
@@ -53,5 +55,8 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
         alert('Ошибка авторизации');
       }
     );
+  }
+  storeToken(token: string): void {
+    sessionStorage.setItem('authToken', token);
   }
 }
