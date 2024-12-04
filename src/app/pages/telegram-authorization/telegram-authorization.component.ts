@@ -15,6 +15,7 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
 
   // Метод, вызываемый после инициализации представления
   ngAfterViewInit(): void {
+    this.authService.checkAuthFromURL();
     // Создаем скрипт
     const script = document.createElement('script');
     script.async = true;
@@ -30,6 +31,7 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
     );
     container.appendChild(script);
     (window as any).onTelegramAuth = (user: any) => this.onTelegramAuth(user);
+    
   }
 
   onTelegramAuth(user: any) {

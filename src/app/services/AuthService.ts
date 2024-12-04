@@ -13,7 +13,21 @@ export class AuthService {
   );
   isAuthorized$ = this.isAuthorizedSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this.checkAuthFromURL();
+
+  }
+
+  checkAuthFromURL(): void {
+    if (typeof window !== 'undefined') {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tgAuth = urlParams.get('tgAuth'); 
+  
+      if (tgAuth) {
+        this.setAuthorizationStatus(true);
+      }
+    }
+  }
 
   sendUserDataToServer(user: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/telegram-login`, user);
