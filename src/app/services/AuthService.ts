@@ -6,43 +6,52 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5173/api/TelegramAuth';
+  private apiUrl = 'http://localhost:5173/api/TelegramAuth/telegram-login';
+  constructor(private http: HttpClient) {}
 
-  private isAuthorizedSubject = new BehaviorSubject<boolean>(
-    this.getAuthorizationStatus()
-  );
-  isAuthorized$ = this.isAuthorizedSubject.asObservable();
-
-  constructor(private http: HttpClient) {
-    this.checkAuthFromURL();
-
+  useTelegram() {
+    const tg = (window as any).Telegram.WebApp;
+    return {
+      tg,
+      user: tg.initDataUnsafe?.user,
+    };
   }
 
-  checkAuthFromURL(): void {
-    if (typeof window !== 'undefined') {
-      const urlParams = new URLSearchParams(window.location.search);
-      const tgAuth = urlParams.get('tgAuth'); 
-  
-      if (tgAuth) {
-        this.setAuthorizationStatus(true);
+  initTelegram() {
+    const { tg, user } = this.useTelegram();
+
+    if (tg) {
+      tg.init(); // Инициализация Telegram WebApp
+
+      if (user) {
+        const userData = {
+          telegramId: user.id,
+          username: user.username,
+          firstName: user.first_name,
+          lastName: user.last_name,
+          photoUrl: user.photo_url,
+        };
+
+        console.log('User Data:', userData);
+
+        // Отправляем данные пользователя на сервер
+        this.saveUserData(userData);
       }
+
+      tg.expand(); // Расширяем WebApp на весь экран
     }
   }
 
-  sendUserDataToServer(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/telegram-login`, user);
-  }
-
-  setAuthorizationStatus(status: boolean): void {
-    localStorage.setItem('isAuthorized', status ? 'true' : 'false');
-    this.isAuthorizedSubject.next(status);
-  }
-
-  getAuthorizationStatus(): boolean {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('isAuthorized') === 'true';
-    }
-    return false;
+  saveUserData(userData: any) {
+    this.http.post(this.apiUrl, userData).subscribe({
+      next: (response) => {
+        console.log('User data saved:', response);
+      },
+      error: (error) => {
+        console.error('Error saving user data:', error);
+        alert('Failed to save user data. Please try again.');
+      },
+    });
   }
   
 }

@@ -2,7 +2,6 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './CommonUi/navigation/navigation.component';
 import { HttpClientModule } from '@angular/common/http';
-import { TelegramAuthorizationComponent } from './pages/telegram-authorization/telegram-authorization.component';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './services/AuthService';
 @Component({
@@ -12,7 +11,6 @@ import { AuthService } from './services/AuthService';
     RouterOutlet,
     NavigationComponent,
     HttpClientModule,
-    TelegramAuthorizationComponent,
     CommonModule,
   ],
   templateUrl: './app.component.html',
@@ -20,13 +18,9 @@ import { AuthService } from './services/AuthService';
 })
 export class AppComponent {
   title = 'beerBotFront';
-  isAuthorized = false;
-
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-    this.authService.isAuthorized$.subscribe((status) => {
-      this.isAuthorized = status;
-    });
+  ngOnInit(): void {
+    this.authService.initTelegram();
   }
 }
