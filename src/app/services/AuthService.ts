@@ -6,7 +6,7 @@ import { Observable, BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:5173/api/TelegramAuth/telegram-login';
+  private apiUrl = 'https://webappbeer.onrender.com/api/TelegramAuth/telegram-login';
   constructor(private http: HttpClient) {}
 
   useTelegram() {
