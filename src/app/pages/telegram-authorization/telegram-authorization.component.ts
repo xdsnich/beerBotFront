@@ -42,7 +42,7 @@ export class TelegramAuthorizationComponent implements AfterViewInit {
       hash: user.hash,
       photo_url: user.photo_url,
     };
-
+    console.log('Данные для отправки на сервер:', telegramData)
     this.authService.sendUserDataToServer(telegramData).subscribe(
       (response) => {
         console.log('Данные успешно отправлены на сервер:', response);
