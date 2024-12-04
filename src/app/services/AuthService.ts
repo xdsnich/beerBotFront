@@ -20,13 +20,13 @@ export class AuthService {
   }
 
   setAuthorizationStatus(status: boolean): void {
-    sessionStorage.setItem('isAuthorized', status ? 'true' : 'false');
+    localStorage.setItem('isAuthorized', status ? 'true' : 'false');
     this.isAuthorizedSubject.next(status);
   }
 
   getAuthorizationStatus(): boolean {
     if (typeof window !== 'undefined') {
-      return sessionStorage.getItem('isAuthorized') === 'true';
+      return localStorage.getItem('isAuthorized') === 'true';
     }
     return false;
   }
