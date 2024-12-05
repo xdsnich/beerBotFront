@@ -21,7 +21,7 @@ export class AuthService {
     const { tg, user } = this.useTelegram();
 
     if (tg) {
-      tg.init(); // Инициализация Telegram WebApp
+      tg.init(); 
 
       if (user) {
         const userData = {
