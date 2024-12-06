@@ -7,6 +7,7 @@
   flex-direction: column;
   align-items: center;
   color: #ffffff;
+  margin-bottom: 20%;
 }
 
 .avatar {
@@ -53,7 +54,6 @@
 
 app-human {
   height: 100px;
-  margin-bottom: 100px;
 }
 .back-model {
   background-color: white;
@@ -64,6 +64,13 @@ app-human {
   height: 50px;
   background-color: #ffffff;
   border-radius: 20px;
+}
+.start-farm-bg {
+  background-color: #ffffff; 
+}
+
+.stop-farm-bg {
+  background-color: #ff0000; 
 }
 .button-farm {
   position: relative;

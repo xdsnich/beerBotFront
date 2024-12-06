@@ -66,6 +66,11 @@ export class EarnComponent implements OnInit {
       action: 'start',
     },
   ];
+  buttonText: string = 'start farming'; 
+
+  toggleFarm() {
+    this.buttonText = this.buttonText === 'start farming' ? 'stop farming' : 'start farming';
+  }
 
   setActiveTab(tabKey: string): void {
     this.activeTab = tabKey;

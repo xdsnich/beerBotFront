@@ -16,8 +16,8 @@
     <app-human></app-human>
   </div>
 
-  <div class="back-button">
-    <div class="button-farm">start farm</div>
+  <div class="back-button" [ngClass]="{ 'start-farm-bg': buttonText === 'start farm', 'stop-farm-bg': buttonText === 'stop farming' }" (click)="toggleFarm()">
+    <div class="button-farm">{{ buttonText }}</div>
   </div>
 
   <div class="block-info">

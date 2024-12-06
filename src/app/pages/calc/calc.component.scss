@@ -8,6 +8,7 @@
   padding: 60px;
   min-height: 100vh;
   overflow: hidden;
+  margin-bottom: 15%;
 }
 
 .calc-title {
@@ -15,8 +16,9 @@
   margin-bottom: 20px;
 }
 app-human {
-  width: 100%;
+  position: relative;
   height: 100px;
+  
 }
 
 
@@ -25,6 +27,8 @@ app-human {
   flex-direction: column;
   align-items: center;
   margin-bottom: 30px;
+  position: relative;
+  top:-120px;
 }
 
 .info-icon {
@@ -40,7 +44,7 @@ app-human {
 }
 
 .show-tip-btn {
-  padding: 10px 20px;
+  padding: 0px 20px;
   background-color: #8473ff;
   color: white;
   border: none;
@@ -57,7 +61,7 @@ app-human {
 }
 
 .tip-box {
-  margin-top: 20px;
+  margin-top: 0px;
   font-size: 14px;
   color: #ccc;
   max-width: 300px;
@@ -68,13 +72,15 @@ app-human {
 .options-choose {
   display: flex;
   justify-content: space-around;
+  position: relative;
+  top: -120px;
 }
 
 .calc-button {
   font-size: 10px;
   width: 100px;
   height: 50px;
-  background-color: #8473ff;
+  background-color: #ffffff;
   border-radius: 10px;
   margin-right: 10px;
 }
